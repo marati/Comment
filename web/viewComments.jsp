@@ -35,7 +35,7 @@
     </head>
     <body>
         <h3>Для того, чтобы просмотреть комментарии, выберите период.</h3>
-        <form name="viewForm" action="ViewComments" method="post">
+        <form name="viewForm" action="ViewComments" method="post" onSubmit="validate_form();">
             <table border="0">
                 <tr>
                     <td>с</td>
@@ -53,23 +53,26 @@
             
             if (startDate != null && endDate != null)
             {
+                if (!startDate.isEmpty() && !endDate.isEmpty())
+                {
         %>
-                <p>Все комментарии с <%=startDate%> по <%=endDate%>:</p>
-                <table border="1" style="border-collapse: collapse;">
-                    <tr align="center">
-                        <th>#</th>
-                        <th>Дата</th>
-                        <th>Комментарий</th>
-                    </tr>
-                    <c:forEach items="${comments}" var="comment">
+                    <p>Все комментарии с <%=startDate%> по <%=endDate%>:</p>
+                    <table border="1" style="border-collapse: collapse;">
                         <tr align="center">
-                            <td><c:out value="${comment.id}"/></td>
-                            <td><c:out value="${comment.date}"/></td>
-                            <td><c:out value="${comment.text}"/></td>
+                            <th>#</th>
+                            <th>Дата</th>
+                            <th>Комментарий</th>
                         </tr>
-                    </c:forEach>
-                </table>        
+                        <c:forEach items="${comments}" var="comment">
+                            <tr align="center">
+                                <td><c:out value="${comment.id}"/></td>
+                                <td><c:out value="${comment.date}"/></td>
+                                <td><c:out value="${comment.text}"/></td>
+                            </tr>
+                        </c:forEach>
+                    </table>        
         <%
+                }
             }
         %>
     </body>
