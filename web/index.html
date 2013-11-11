@@ -1,16 +1,47 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Добавить комментарий</title>
+
+<script type="text/javascript">
+<!--
+function validate_form()
+{
+    isError = false;
+
+    if (document.commentForm.text.value == "")
+    {
+        alert ("Введите, пожалуйста, текст комментария.");
+        isError = true;
+    }
+
+    return !isError;
+}
+//-->
+</script>
+
+</head>
+<body>
+
+    <h3>Введите текст в поле и нажмите "Добавить".</h3>
+    <form name="commentForm" action="AddComment" onSubmit='return validate_form();' method="post">
+        <table border="0">
+            <tr>
+                <td>Дата:</td>
+                <td><input type="text" name="date" size="10"></td>
+            </tr>
+            <tr>
+                <td valign="top">Комментарий:</td>
+                <td><textarea name="text"></textarea></td>
+            </tr>
+            
+            <tr>
+                <td colspan="2"><input type="submit" name="append" value="Добавить"></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
 </html>
