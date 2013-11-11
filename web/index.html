@@ -14,9 +14,9 @@ function validate_form()
 {
     isError = false;
 
-    if (document.commentForm.text.value == "")
+    if (document.commentForm.date.value == "" || document.commentForm.text.value == "")
     {
-        alert ("Введите, пожалуйста, текст комментария.");
+        alert ("Введите, пожалуйста, дату и текст комментария.");
         isError = true;
     }
 
@@ -30,15 +30,13 @@ window.addEvent('domready', function() { myCal = new Calendar({ date: 'd.m.Y' },
 </head>
 <body>
 
-    <h3>Введите текст в поле и нажмите "Добавить".</h3>
+    <h3>Выберите дату и введите текст, после чего нажмите "Добавить".</h3>
     <form name="commentForm" action="AddComment" onSubmit='return validate_form();' method="post">
         <table border="0">
             <tr>
                 <td>Дата:</td>
                 <td>
-                    
                     <input id="date" name="date" type="text" readonly class="calendar">
-                   
                 </td>
             </tr>
             <tr>
