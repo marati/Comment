@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Р”РѕР±Р°РІРёС‚СЊ РєРѕРјРјРµРЅС‚Р°СЂРёР№</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Добавить комментарий</title>
 
 <script type="text/javascript" src="js/mootools.js"></script>
 <script type="text/javascript" src="js/calendar.js"></script>
@@ -16,7 +16,7 @@ function validate_form()
 
     if (document.commentForm.date.value == "" || document.commentForm.text.value == "")
     {
-        alert ("Р’РІРµРґРёС‚Рµ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РґР°С‚Сѓ Рё С‚РµРєСЃС‚ РєРѕРјРјРµРЅС‚Р°СЂРёСЏ.");
+        alert ("Введите, пожалуйста, дату и текст комментария.");
         isError = true;
     }
 
@@ -30,22 +30,22 @@ window.addEvent('domready', function() { myCal = new Calendar({ date: 'd.m.Y' },
 </head>
 <body>
 
-    <h3>Р’С‹Р±РµСЂРёС‚Рµ РґР°С‚Сѓ Рё РІРІРµРґРёС‚Рµ С‚РµРєСЃС‚, РїРѕСЃР»Рµ С‡РµРіРѕ РЅР°Р¶РјРёС‚Рµ "Р”РѕР±Р°РІРёС‚СЊ".</h3>
+    <h3>Выберите дату и введите текст, после чего нажмите "Добавить".</h3>
     <form name="commentForm" action="AddComment" onSubmit='return validate_form();' method="post">
         <table border="0">
             <tr>
-                <td>Р”Р°С‚Р°:</td>
+                <td>Дата:</td>
                 <td>
                     <input id="date" name="date" type="text" readonly class="calendar">
                 </td>
             </tr>
             <tr>
-                <td valign="top">РљРѕРјРјРµРЅС‚Р°СЂРёР№:</td>
+                <td valign="top">Комментарий:</td>
                 <td><textarea name="text"></textarea></td>
             </tr>
             
             <tr>
-                <td colspan="2"><input type="submit" name="append" value="Р”РѕР±Р°РІРёС‚СЊ"></td>
+                <td colspan="2"><input type="submit" name="append" value="Добавить"></td>
             </tr>
         </table>
     </form>

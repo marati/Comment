@@ -18,6 +18,7 @@ public class AddComment extends Forwarder {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+        request.setCharacterEncoding("CP1251"); 
 
         if (request.getParameter("append") != null)
         {

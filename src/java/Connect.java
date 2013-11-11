@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.Properties;
 
 public class Connect {
     
@@ -12,11 +13,14 @@ public class Connect {
         {
             try {
                 String driver = "com.mysql.jdbc.Driver";
-                String url = "jdbc:mysql://localhost:3306/comments";
-                String user = "root";
-                String pass = "root";
                 Class.forName(driver);
-                con = DriverManager.getConnection(url, user, pass);
+                Properties properties=new Properties();
+                properties.setProperty("user","root");
+                properties.setProperty("password","root");
+                properties.setProperty("useUnicode","true");
+                properties.setProperty("characterEncoding","UTF-8");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/comments",
+                        properties);
             } catch (ClassNotFoundException nfexc) {
                 System.out.println(nfexc);
             } catch (SQLException sqlexc) {
